@@ -6,7 +6,7 @@
 
   <!-- ── Primary SEO ── -->
   <title>StintForge — Endurance Racing Strategy Platform</title>
-  <meta name="description" content="StintForge is the strategy platform built for sim racing endurance teams. Plan stints, manage driver availability, calculate fuel, and run your race from one place." />
+  <meta name="description" content="Strategy platform for sim racing endurance teams. Plan stints, manage driver availability, calculate fuel and coordinate your race." />
   <meta name="keywords" content="sim racing strategy, endurance racing planner, stint planner, iRacing strategy, driver schedule, fuel calculator, race strategy tool" />
   <meta name="author" content="StintForge" />
   <link rel="canonical" href="https://stintforge.com/" />
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://stintforge.com/" />
   <meta property="og:title" content="StintForge — Endurance Racing Strategy Platform" />
-  <meta property="og:description" content="The strategy platform built for sim racing endurance teams. Plan stints, manage driver availability, calculate fuel, and run your race from one place." />
+  <meta property="og:description" content="Strategy platform for sim racing endurance teams. Plan stints, manage driver availability, calculate fuel and coordinate your race." />
   <meta property="og:image" content="https://stintforge.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@stintforge" />
   <meta name="twitter:title" content="StintForge — Endurance Racing Strategy Platform" />
-  <meta name="twitter:description" content="The strategy platform built for sim racing endurance teams. Plan stints, manage driver availability, calculate fuel, and run your race from one place." />
+  <meta name="twitter:description" content="Strategy platform for sim racing endurance teams. Plan stints, manage driver availability, calculate fuel and coordinate your race." />
   <meta name="twitter:image" content="https://stintforge.com/og-image.png" />
 
   <!-- ── Structured Data ── -->
@@ -451,7 +451,17 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── Responsive ── */
+    .how-it-works-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
     @media (max-width: 768px) {
+      .how-it-works-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
       .nav-links { display: none; }
       .nav-mobile-btn { display: flex; }
       .hero-stat-divider { display: none; }
@@ -684,7 +694,7 @@
 
 <!-- ── How it works ── -->
 <section id="how-it-works" style="background:var(--s1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);" aria-labelledby="how-title">
-  <div class="section-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+  <div class="section-inner how-it-works-grid">
     <div>
       <p class="section-label reveal">Workflow</p>
       <h2 class="section-title reveal" id="how-title">Race ready in<br/>minutes</h2>
@@ -832,7 +842,7 @@
       <a href="#how-it-works">How it works</a>
       <a href="https://app.stintforge.com/login">Sign in</a>
     </div>
-    <p class="footer-copy">© 2025 StintForge. Built for endurance racing teams.</p>
+    <p class="footer-copy">© <span id="year"></span> StintForge. Built for endurance racing teams.</p>
   </div>
 </footer>
 
@@ -857,6 +867,8 @@
   document.querySelectorAll('.feature-card.reveal').forEach((el, i) => {
     el.style.transitionDelay = `${i * 0.06}s`;
   });
+  // ── Copyright year ──
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
